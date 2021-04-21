@@ -1,5 +1,10 @@
 package com.maipiande.rubbish;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class RubbishResult {
     private int status;
 
@@ -7,7 +12,7 @@ public class RubbishResult {
 
     private String message;
 
-    private RubbishResult(int status, Object result, String message) {
+    public RubbishResult(int status, Object result, String message) {
         this.status = status;
         this.result = result;
         this.message = message;
