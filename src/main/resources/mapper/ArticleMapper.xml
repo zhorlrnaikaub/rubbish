@@ -10,7 +10,7 @@
                 title like CONCAT('%',#{param.title},'%')
             </if>
             <if test="param.classify!=null and param.classify!=''">
-                title like CONCAT('%',#{param.classify},'%')
+                and classify like CONCAT('%',#{param.classify},'%')
             </if>
         </where>
         order by create_time desc
