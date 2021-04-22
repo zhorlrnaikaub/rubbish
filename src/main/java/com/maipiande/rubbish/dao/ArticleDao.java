@@ -2,7 +2,7 @@ package com.maipiande.rubbish.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.maipiande.rubbish.entity.Article;
-import com.maipiande.rubbish.param.ArticleListParam;
+import com.maipiande.rubbish.param.article.ArticleListParam;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

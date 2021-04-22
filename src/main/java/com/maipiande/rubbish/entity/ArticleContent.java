@@ -5,28 +5,24 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
+/**
+ * @author yizmao
+ * @date 18-7-31 下午3:14
+ */
+@TableName("article_content")
 @Data
-@TableName("article")
-public class Article extends Model {
+public class ArticleContent extends Model {
 
-    @TableId(type = IdType.AUTO)
-    private int id;
+    @TableId(type = IdType.INPUT)
+    private Integer articleId;
 
-    private String title;
-
-    private String classify;
-
-    private LocalDateTime createDate;
+    private String content;
 
     @Override
     protected Serializable pkVal() {
-        return this.id;
+        return this.articleId;
     }
 }
