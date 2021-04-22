@@ -64,4 +64,13 @@ public class UserInfoController {
         userInfo.updateById();
         return RubbishResult.ok();
     }
+
+    /**
+     * 退出登录
+     */
+    @GetMapping("/logout/{token}")
+    public RubbishResult logout(@PathVariable("token") String token){
+        Token.logout(token);
+        return RubbishResult.ok();
+    }
 }

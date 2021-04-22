@@ -70,4 +70,11 @@ public class Token {
         Token.add(token,result,60*60*24);
         return result;
     }
+
+    /**
+     * Token过期
+     */
+    public static void logout(String token){
+        userTokenMap.remove(token);
+    }
 }
