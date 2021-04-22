@@ -7,6 +7,7 @@ import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Slf4j
 public class Token {
@@ -21,7 +22,7 @@ public class Token {
      * @param content
      * @param expire
      */
-    public static void add(String token, Object content, long expire) {
+    private static void add(String token, Object content, long expire) {
         Long expireTime = LocalDateTime
                 .now()
                 .plusSeconds(expire)
@@ -55,5 +56,18 @@ public class Token {
             return result;
         }
         return null;
+    }
+
+    /**
+     * 保存用户登录信息
+     * @param info
+     */
+    public static Map<String,Object> saveInfo(Object info){
+        String token  = UUID.randomUUID().toString();
+        Map<String,Object> result = new HashMap<>();
+        result.put("token",token);
+        result.put("info",info);
+        Token.add(token,result,60*60*24);
+        return result;
     }
 }
